@@ -8,7 +8,7 @@
     $myObj = (object)array();
     $pdo = Database::connect();
 
-    $sql = 'SELECT * FROM esp32_table WHERE id="' . $id . '"';
+    $sql = 'SELECT * FROM esp32_table_update WHERE id="' . $id . '"';
     foreach ($pdo->query($sql) as $row) {
       $date = date_create($row['date']);
       $dateFormat = date_format($date,"d-m-Y");
