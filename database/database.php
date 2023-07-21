@@ -12,7 +12,7 @@
 		}
 		 
 		public static function connect() {
-      // One connection through whole application
+     
       if ( null == self::$cont ) {     
         try {
           self::$cont =  new PDO( "mysql:host=".self::$dbHost.";"."dbname=".self::$dbName, self::$dbUsername, self::$dbUserPassword); 

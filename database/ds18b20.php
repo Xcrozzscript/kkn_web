@@ -11,7 +11,6 @@
     $tm = date("H:i:s");
     $dt = date("Y-m-d");
     //........................................
-    //...
     $pdo = Database::connect();
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     //
@@ -20,7 +19,6 @@
     $q->execute(array($suhu,$ph,$salinitas,$tm,$dt,$id));
     Database::disconnect();
     //........................
-    //...
     $id_key;
     $board = $_POST['id'];
     $found_empty = false;
@@ -38,21 +36,17 @@
         $found_empty = true;
       }
     }
-    //::::::::
+ 
 
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 		$sql = "INSERT INTO esp32_table (id,board,suhu,ph,salinitas,time,date) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		$q = $pdo->prepare($sql);
 		$q->execute(array($id_key,$board,$suhu,$ph,$salinitas,$tm,$dt));
-    //::::::::
-    
+
     Database::disconnect();
-    //........................................ 
   }
-  //---------------------------------------- 
-  
-  //---------------------------------------- Function to create "id" based on numbers and characters.
+
   function generate_string_id($strength = 16) {
     $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
     $input_length = strlen($permitted_chars);
@@ -63,5 +57,5 @@
     }
     return $random_string;
   }
-  //---------------------------------------- 
+
 ?>

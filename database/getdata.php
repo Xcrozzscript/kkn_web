@@ -6,8 +6,6 @@
     $id = $_POST['id'];
 
     $myObj = (object)array();
-    
-    //........................................ 
     $pdo = Database::connect();
 
     $sql = 'SELECT * FROM esp32_table WHERE id="' . $id . '"';
